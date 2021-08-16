@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using eShopSolution.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ShopSolution.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShopSolution.Data.Configuration
+namespace eShopSolution.Data.Configurations
 {
     public class AppUserConfiguration : IEntityTypeConfiguration<AppUser>
     {
