@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ShopSolution.Data.Entities;
 using ShopSolution.Data.Enum;
 using System;
@@ -101,14 +102,14 @@ namespace ShopSolution.Data.Extensions
                 Id = adminId,
                 UserName = "admin",
                 NormalizedUserName = "admin",
-                Email = "tedu.international@gmail.com",
-                NormalizedEmail = "tedu.international@gmail.com",
+                Email = "tungdt1412@gmail.com",
+                NormalizedEmail = "tungdt1412@gmail.com",
                 EmailConfirmed = true,
                 PasswordHash = hasher.HashPassword(null, "Abcd1234$"),
                 SecurityStamp = string.Empty,
-                FirstName = "Toan",
-                LastName = "Bach",
-                Dob = new DateTime(2020, 01, 31)
+                FirstName = "Tung",
+                LastName = "Duong",
+                Dob = new DateTime(2000, 12, 14)
             });
 
             modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid>
