@@ -1,13 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ShopSolution.Application.Catalog.Products;
 using ShopSolution.Application.Common;
+using ShopSolution.Application.System.Users;
 using ShopSolution.Data.EF;
+using ShopSolution.Data.Entities;
 using ShopSolution.Utilities.Constaint;
 using System;
 using System.Collections.Generic;
@@ -28,12 +31,20 @@ namespace ShopSolution.BackendAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //add db context
             services.AddDbContext<ShopDBContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
+
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<ShopDBContext>().AddDefaultTokenProviders();
+
             //Declare Di
             services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<IPublicProductService, PublicProductService>();
             services.AddTransient<IManageProductService, ManageProductService>();
+            services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddTransient<IUserService, UserService>();
 
             services.AddControllersWithViews();
 
