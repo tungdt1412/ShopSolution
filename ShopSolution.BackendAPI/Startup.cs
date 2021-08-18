@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ShopSolution.Application.Catalog.Products;
+using ShopSolution.Application.Common;
 using ShopSolution.Data.EF;
 using ShopSolution.Utilities.Constaint;
 using System;
@@ -30,7 +31,9 @@ namespace ShopSolution.BackendAPI
             services.AddDbContext<ShopDBContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
             //Declare Di
+            services.AddTransient<IStorageService, FileStorageService>();
             services.AddTransient<IPublicProductService, PublicProductService>();
+            services.AddTransient<IManageProductService, ManageProductService>();
 
             services.AddControllersWithViews();
 
