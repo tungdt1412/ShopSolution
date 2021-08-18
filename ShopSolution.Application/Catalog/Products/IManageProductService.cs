@@ -1,9 +1,8 @@
-﻿using ShopSolution.Application.Catalog.Products.Dtos;
-using ShopSolution.Application.Catalog.Products.Dtos.Manage;
-using ShopSolution.Application.Dtos;
-using System;
+﻿using Microsoft.AspNetCore.Http;
+using ShopSolution.ViewModels.Catalog.ProductImages;
+using ShopSolution.ViewModels.Catalog.Products;
+using ShopSolution.ViewModels.Common;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ShopSolution.Application.Catalog.Products
@@ -22,6 +21,14 @@ namespace ShopSolution.Application.Catalog.Products
 
         Task AddViewCount(int productId);
 
-        Task<PagedResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
+        Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request);
+
+        Task<int> AddImages(int productId, ProductImageCreateRequest request);
+
+        Task<int> RemovseImage(int imageId);
+
+        Task<int> UpdateImage(int imageId, ProductImageUpdateRequest request);
+
+        Task<List<ProductImageViewModel>> GetListImage(int productId);
     }
 }
