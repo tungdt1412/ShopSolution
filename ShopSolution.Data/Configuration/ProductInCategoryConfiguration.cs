@@ -7,12 +7,12 @@ using System.Text;
 
 namespace ShopSolution.Data.Configuration
 {
-    class ProductInCategoryConfiguration : IEntityTypeConfiguration<ProductInCategory>
+    public class ProductInCategoryConfiguration : IEntityTypeConfiguration<ProductInCategory>
     {
         public void Configure(EntityTypeBuilder<ProductInCategory> builder)
         {
             builder.HasKey(t => new { t.CategoryId, t.ProductId });
-            builder.ToTable("ProductInCategory");
+            builder.ToTable("ProductInCategories");
             builder.HasOne(t => t.Product).WithMany(pc => pc.ProductInCategories).HasForeignKey(pc => pc.ProductId);
             builder.HasOne(t => t.Category).WithMany(pc => pc.ProductInCategories).HasForeignKey(pc => pc.CategoryId);
         }
