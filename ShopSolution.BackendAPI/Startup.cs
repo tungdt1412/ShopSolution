@@ -55,6 +55,8 @@ namespace ShopSolution.BackendAPI
             //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
 
             //services.AddControllersWithViews();
+
+            //RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>() : use all validator file in same folder of LoginRequestValidator
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
 
             services.AddSwaggerGen(c =>
