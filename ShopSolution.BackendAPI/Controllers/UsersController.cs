@@ -33,10 +33,11 @@ namespace ShopSolution.BackendAPI.Controllers
             {
                 return BadRequest("Username of passwordd is incorrect.");
             }
+            
             return Ok(resultToken);
         }
 
-        [HttpPost("register")]
+        [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
@@ -49,6 +50,13 @@ namespace ShopSolution.BackendAPI.Controllers
                 return BadRequest("Register is unsuccessfull");
             }
             return Ok();
+        }
+
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetUserPagingRequest request)
+        {
+            var products = await _userService.GetUserPaging(request);
+            return Ok(products);
         }
     }
 }
