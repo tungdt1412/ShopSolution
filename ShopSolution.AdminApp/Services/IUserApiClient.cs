@@ -12,5 +12,7 @@ namespace ShopSolution.AdminApp.Services
         Task<string> Authenticate(LoginRequest request);
 
         Task<PagedResult<UserVm>> GetUserPaging(GetUserPagingRequest request);
+
+        Task<bool> RegisterUser(RegisterRequest registerRequest);
     }
 }
