@@ -26,21 +26,30 @@ namespace ShopSolution.AdminApp.Controllers
             _userApiClient = userApiClient;
             _configuration = configuration;
         }
-        public async Task<IActionResult> Index(string keyword, int pageIndex = 1, int PageSize = 10)
+        public async Task<IActionResult> Index(string keyword, int pageIndex = 1, int PageSize = 1)
         {
-            var sessions = HttpContext.Session.GetString("Token");
-
             var request = new GetUserPagingRequest()
             {
                 Keyword = keyword,
                 PageIndex = pageIndex,
                 PageSize = PageSize
             };
-
-            var data = await _userApiClient.GetUserPaging(request); 
-
+            var data = await _userApiClient.GetUserPaging(request);
+            ViewBag.Keyword = keyword;
+            if (TempData["result"] != null)
+            {
+                ViewBag.SuccessMsg = TempData["result"];
+            }
             return View(data.ResultObj);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var result = await _userApiClient.GetById(id);
+            return View(result.ResultObj);
+        }
+
         [HttpGet]
         public IActionResult Create()
         {
