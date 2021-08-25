@@ -55,9 +55,6 @@
                     <thead>
                         <tr>
                             <th>
-                                ID
-                            </th>
-                            <th>
                                 Tên
                             </th>
                             <th>
@@ -79,9 +76,6 @@
                         @foreach (var item in Model.Items)
                         {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Id)
-                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.FirstName)
                             </td>
@@ -108,7 +102,7 @@
                     </tbody>
                 </table>
             </div>
-            @*@await Component.InvokeAsync("Pager", Model)*@
+            @await Component.InvokeAsync("Pager", Model)
         </div>
     </div>
 </div>

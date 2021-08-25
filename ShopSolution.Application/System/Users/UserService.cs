@@ -96,7 +96,6 @@ namespace ShopSolution.Application.System.Users
             return new ApiSuccessResult<UserVm>(userVm);
         }
 
-
         public async Task<ApiResult<PagedResult<UserVm>>> GetUserPaging(GetUserPagingRequest request)
         {
             var query = _userManager.Users;
@@ -124,7 +123,7 @@ namespace ShopSolution.Application.System.Users
             //4. Select and projection
             var pagedResult = new PagedResult<UserVm>()
             {
-                TotalRecord = totalRow,
+                TotalRecords = totalRow,
                 PageIndex = request.PageIndex,
                 PageSize = request.PageSize,
                 Items = data
@@ -189,6 +188,7 @@ namespace ShopSolution.Application.System.Users
 
             return new ApiSuccessResult<bool>();
         }
+
         public async Task<ApiResult<bool>> Update(Guid id, UserUpdateRequest request)
         {
             if (await _userManager.Users.AnyAsync(x => x.Email == request.Email && x.Id != id))
