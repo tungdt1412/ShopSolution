@@ -29,9 +29,9 @@ namespace ShopSolution.BackendAPI.Controllers
                 return BadRequest(ModelState);
 
             var resultToken = await _userService.Authencate(request);
-            if (string.IsNullOrEmpty(resultToken))
+            if (string.IsNullOrEmpty(resultToken.ResultObj))
             {
-                return BadRequest("Username of passwordd is incorrect.");
+                return BadRequest(resultToken);
             }
             
             return Ok(resultToken);
@@ -45,11 +45,25 @@ namespace ShopSolution.BackendAPI.Controllers
                 return BadRequest(ModelState);
 
             var result = await _userService.Register(request);
-            if (!result)
+            if (!result.IsSuccess)
             {
-                return BadRequest("Register is unsuccessfull");
+                return BadRequest(result);
             }
-            return Ok();
+            return Ok(result);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UserUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _userService.Update(id, request);
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
 
         [HttpGet("paging")]
@@ -57,6 +71,13 @@ namespace ShopSolution.BackendAPI.Controllers
         {
             var products = await _userService.GetUserPaging(request);
             return Ok(products);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var user = await _userService.GetById(id);
+            return Ok(user);
         }
     }
 }
