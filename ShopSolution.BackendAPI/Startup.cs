@@ -11,9 +11,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ShopSolution.Application.Catalog.Categories;
 using ShopSolution.Application.Catalog.Products;
 using ShopSolution.Application.Common;
+using ShopSolution.Application.System.Languages;
+using ShopSolution.Application.System.Roles;
 using ShopSolution.Application.System.Users;
+using ShopSolution.Application.Utilities.Slides;
 using ShopSolution.Data.EF;
 using ShopSolution.Data.Entities;
 using ShopSolution.Utilities.Constaint;
@@ -45,10 +49,17 @@ namespace ShopSolution.BackendAPI
 
             //Declare Di
             services.AddTransient<IStorageService, FileStorageService>();
+
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddTransient<ILanguageService, LanguageService>();
+            services.AddTransient<ISlideService, SlideService>();
+
+            services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserService, UserService>();
             //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
             //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
