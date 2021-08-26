@@ -16,6 +16,7 @@ namespace ShopSolution.BackendAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
+
         public UsersController(IUserService userService)
         {
             _userService = userService;
@@ -28,13 +29,13 @@ namespace ShopSolution.BackendAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var resultToken = await _userService.Authencate(request);
-            if (string.IsNullOrEmpty(resultToken.ResultObj))
+            var result = await _userService.Authencate(request);
+
+            if (string.IsNullOrEmpty(result.ResultObj))
             {
-                return BadRequest(resultToken);
+                return BadRequest(result);
             }
-            
-            return Ok(resultToken);
+            return Ok(result);
         }
 
         [HttpPost]
@@ -52,6 +53,7 @@ namespace ShopSolution.BackendAPI.Controllers
             return Ok(result);
         }
 
+        //PUT: http://localhost/api/users/id
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UserUpdateRequest request)
         {
@@ -66,6 +68,21 @@ namespace ShopSolution.BackendAPI.Controllers
             return Ok(result);
         }
 
+        [HttpPut("{id}/roles")]
+        public async Task<IActionResult> RoleAssign(Guid id, [FromBody] RoleAssignRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _userService.RoleAssign(id, request);
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+        //http://localhost/api/users/paging?pageIndex=1&pageSize=10&keyword=
         [HttpGet("paging")]
         public async Task<IActionResult> GetAllPaging([FromQuery] GetUserPagingRequest request)
         {
@@ -78,6 +95,13 @@ namespace ShopSolution.BackendAPI.Controllers
         {
             var user = await _userService.GetById(id);
             return Ok(user);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var result = await _userService.Delete(id);
+            return Ok(result);
         }
     }
 }
