@@ -1,16 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ShopSolution.Application.Catalog.Products;
+﻿using ShopSolution.Application.Catalog.Products;
 using ShopSolution.ViewModels.Catalog.ProductImages;
 using ShopSolution.ViewModels.Catalog.Products;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace ShopSolution.BackendAPI.Controllers
+namespace ShopSolution.BackendApi.Controllers
 {
+    //api/products
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
