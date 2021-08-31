@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ShopSolution.Utilities.Constaint;
 
-namespace ShopSolution.AdminApp.Services
+namespace ShopSolution.API
 {
     public class ProductApiClient : BaseApiClient, IProductApiClient
     {

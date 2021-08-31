@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using ShopSolution.ViewModels.Catalog.Products;
 using ShopSolution.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using ShopSolution.AdminApp.Services;
+using ShopSolution.API;
 
 namespace ShopSolution.WebApp.Controllers
 {

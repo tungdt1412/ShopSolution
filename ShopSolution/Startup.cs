@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ShopSolution.AdminApp.Services;
+using ShopSolution.API;
 using ShopSolution.ViewModels.System.Users;
 using ShopSolution.WebApp.LocalizationResources;
 using System;

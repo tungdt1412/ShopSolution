@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
-using ShopSolution.AdminApp.Services;
+using ShopSolution.API;
 using ShopSolution.Utilities.Constaint;
 using ShopSolution.ViewModels.System.Users;
 using System;

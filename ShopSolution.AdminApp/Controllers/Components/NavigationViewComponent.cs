@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ShopSolution.AdminApp.Models;
-using ShopSolution.AdminApp.Services;
+using ShopSolution.API;
 using ShopSolution.Utilities.Constaint;
 using System;
 using System.Collections.Generic;

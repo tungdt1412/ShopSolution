@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace ShopSolution.AdminApp.Services
+namespace ShopSolution.API
 {
     public class SlideApiClient : BaseApiClient, ISlideApiClient
     {

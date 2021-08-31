@@ -47,6 +47,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShopSolution.AdminApp\ShopSolution.AdminApp.csproj" />
+    <ProjectReference Include="..\ShopSolution.API\ShopSolution.API.csproj" />
     <ProjectReference Include="..\ShopSolution.Utilities\ShopSolution.Utilities.csproj" />
     <ProjectReference Include="..\ShopSolution.ViewModels\ShopSolution.ViewModels.csproj" />
   </ItemGroup>

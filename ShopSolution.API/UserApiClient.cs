@@ -11,7 +11,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopSolution.AdminApp.Services
+namespace ShopSolution.API
 {
     public class UserApiClient : IUserApiClient
     {

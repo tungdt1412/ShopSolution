@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ShopSolution.AdminApp.Services
+namespace ShopSolution.API
 {
     public interface ISlideApiClient
     {

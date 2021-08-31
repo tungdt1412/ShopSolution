@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace ShopSolution.AdminApp.Services
+namespace ShopSolution.API
 {
     public class BaseApiClient
     {

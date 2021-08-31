@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
-using ShopSolution.AdminApp.Services;
+using ShopSolution.API;
 using ShopSolution.Utilities.Constaint;
 using ShopSolution.ViewModels.Catalog.Products;
 using ShopSolution.ViewModels.Common;

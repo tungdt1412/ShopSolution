@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ShopSolution.AdminApp.Services
+namespace ShopSolution.API
 {
-    internal class OrderApiClient
+    public interface IOrderApiClient
     {
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShopSolution.AdminApp.Services;
+using ShopSolution.API;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

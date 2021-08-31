@@ -13,8 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
-using ShopSolution.AdminApp.Services;
 using ShopSolution.Utilities.Constaint;
+using ShopSolution.API;
 
 namespace ShopSolution.WebApp.Controllers
 {

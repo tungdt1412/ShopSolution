@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShopSolution.Application\ShopSolution.Application.csproj" />
+    <ProjectReference Include="..\ShopSolution.Utilities\ShopSolution.Utilities.csproj" />
+    <ProjectReference Include="..\ShopSolution.ViewModels\ShopSolution.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
